@@ -1,6 +1,13 @@
-import random
-num = input('login: ')
-pas = ''
-for x in range(16): #Количество символов (16)
-    pas = pas + random.choice(list('1234567890abcdefghigklmnopqrstuvyxwzABCDEFGHIGKLMNOPQRSTUVYXWZ')) #Символы, из которых будет составлен пароль
-print('Hello, ', num, 'your password is: ', pas)
+def my_decorator(func):
+    def wrapper(*args, **kwargs):
+        print("Before calling function")
+        result = func(*args, **kwargs)
+        print("After calling function")
+        return result
+    return wrapper
+
+@my_decorator
+def add(x, y):
+    return x + y
+
+print(add(2, 3))
